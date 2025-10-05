@@ -12,11 +12,11 @@ if ! command -v node &> /dev/null; then
 fi
 echo "✅ Node.js $(node --version)"
 
-if ! command -v python3 &> /dev/null; then
-    echo "❌ Install Python3: https://python.org/"
+if ! command -v py &> /dev/null; then
+    echo "❌ Install py: https://python.org/"
     exit 1
 fi
-echo "✅ Python $(python3 --version | cut -d' ' -f2)"
+echo "✅ Python $(py --version | cut -d' ' -f2)"
 
 echo "📦 Installing dependencies..."
 npm install
@@ -25,12 +25,12 @@ cd frontend && npm install && cd ..
 
 echo "🤖 Setting up AI service..."
 cd ai-service
-python3 -m venv venv
+py -m venv venv
 source venv/bin/activate
 pip install --upgrade pip
 pip install Flask==2.3.3 Flask-CORS==4.0.0 requests==2.31.0 python-dotenv==1.0.0 nltk==3.8.1 textstat==0.7.3
 
-python3 -c "
+py -c "
 try:
     import nltk, ssl
     try: _create_unverified_https_context = ssl._create_unverified_context
