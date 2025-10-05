@@ -27,18 +27,19 @@ echo "🤖 Setting up AI service..."
 cd ai-service
 py -m venv venv
 
-# Cross-platform virtualenv activation
+# Cross-platform venv activation
 if [ -f "venv/bin/activate" ]; then
   source venv/bin/activate
 elif [ -f "venv/Scripts/activate" ]; then
   source venv/Scripts/activate
 else
-  echo "ERROR: Could not find virtualenv activate script"
+  echo "ERROR: Could not find venv activation script"
   exit 1
 fi
 
-pip install --upgrade pip
-pip install Flask==2.3.3 Flask-CORS==4.0.0 requests==2.31.0 python-dotenv==1.0.0 nltk==3.8.1 textstat==0.7.3
+# Use venv's python to upgrade pip and install packages
+python -m pip install --upgrade pip
+python -m pip install Flask==2.3.3 Flask-CORS==4.0.0 requests==2.31.0 python-dotenv==1.0.0 nltk==3.8.1 textstat==0.7.3
 
 py -c "
 try:
