@@ -1,0 +1,13 @@
+{
+  "name": "resumeparspro-atlas",
+  "version": "4.1.0",
+  "description": "Beautiful resume analysis with MongoDB Atlas cloud database",
+  "scripts": {
+    "dev": "concurrently \"npm run backend:dev\" \"npm run frontend:dev\" \"npm run ai:dev\"",
+    "frontend:dev": "cd frontend && npm run dev",
+    "backend:dev": "cd backend && npm run dev", 
+    "ai:dev": "cd ai-service && source venv/bin/activate && python3 app.py"
+  },
+  "devDependencies": { "concurrently": "^8.2.2" },
+  "keywords": ["resume", "ai", "mongodb-atlas", "cloud-database"]
+}
